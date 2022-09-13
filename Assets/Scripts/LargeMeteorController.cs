@@ -13,11 +13,14 @@ public class LargeMeteorController : MonoBehaviour
     public TextMeshProUGUI ballHP;
     public float fallSpeed =4.0f;
     public float fallFactor = 0.7f;
-    public int health = 4;
+    public int health = 1;
+    private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
+         rb= gameObject.GetComponent<Rigidbody>();
         TimeManagerscript = GameObject.Find("TimeManager").GetComponent<TimeManager>();
+        StartSpeed();
     }
     
     // Update is called once per frame
@@ -43,9 +46,10 @@ public class LargeMeteorController : MonoBehaviour
     }
     public void Die()
     {
-        Vector3 spawnLocation = new Vector3(transform.position.x, transform.position.y , transform.position.z);
-        Instantiate(mediumMeteor,spawnLocation,transform.rotation);
-        Instantiate(mediumMeteor,spawnLocation,transform.rotation);
+        Vector3 spawnLocation1 = new Vector3(transform.position.x +1, transform.position.y , transform.position.z);
+        Vector3 spawnLocation2 = new Vector3(transform.position.x -1, transform.position.y , transform.position.z);
+        Instantiate(mediumMeteor,spawnLocation1,transform.rotation);
+        Instantiate(mediumMeteor,spawnLocation2,transform.rotation);
         TimeManager.Counter += 10;
        
         Destroy(gameObject);
@@ -57,6 +61,13 @@ public class LargeMeteorController : MonoBehaviour
             Die();
         }
     }
-    
+     void StartSpeed()
+    {
+        
+        Vector3 direction = new Vector3 (Random.Range(-2,2),0,0);
+        Vector3 direction2 = new Vector3 (-1,0,0);
+        //rb.AddRelativeForce (direction * 30 - rb.velocity);
+        rb.AddRelativeForce (direction * 120 - rb.velocity);
+    }
 
 }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Missile
   - Enemy
+  - Wall
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Enemies
   - 
   - 
   - 

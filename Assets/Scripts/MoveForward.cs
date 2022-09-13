@@ -8,6 +8,11 @@ using UnityEngine;
     //Move Forward Function
      private float topBound = 20f;
     public float speed = 40f;
+
+    void Start()
+    {
+        GetComponent<TrailRenderer>();
+    }
     // Update is called once per frame
     void Update()
     {

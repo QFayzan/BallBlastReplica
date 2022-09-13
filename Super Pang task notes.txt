@@ -1,0 +1,26 @@
+Trail Renderer for basic projectile
+
+Change gameplay loop from time based to life based (Add UI for this as well)
+
+Add character from unit 3 as player with their idle and move animations and death animation
+  so basically add the character facing the world and when he dies rotate it 180 degreee and face the player before
+  playing death animation
+
+ make baloons only collide with player and stage boundary not with each other 
+  Timestop Powerup
+1. make the balls freeze and let the player pass through while allowing player to damage them
+1.1 method should be 
+{
+   
+    disable rigidbody . isgravity
+	add a bool where damagePlayer is set to true allows the collsion to player 
+	add a new script and new object 
+	on object "clock" disable rigidbody of all 3 balls and set the bool of damage player to false for a set amount of time
+	on 1 death do the above function but for longer time like 5 sec
+	
+  make balls fall faster
+my logic is to have a global hidden value that will rise when a smallest is "popped" if > 60 increase speed of all balls by 10
+and keep it going until 600?
+add the level bar at the bottom showing this progress or just add the smallest popped count in UI
+
+Pick up any BGM (maybe from unit 3)
